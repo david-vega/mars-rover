@@ -37,4 +37,26 @@ describe Rover do
       subject.position[:x].should == 0
     end
   end
+
+  describe '#left' do
+    it 'should do a spin ending facing east' do
+      subject.left
+      subject.direction.should == 'w'
+      subject.left
+      subject.direction.should == 's'
+      subject.left
+      subject.direction.should == 'e'
+    end
+  end
+
+  describe '#right' do
+    it 'should do a spin ending facing west' do
+      subject.right
+      subject.direction.should == 'e'
+      subject.right
+      subject.direction.should == 's'
+      subject.right
+      subject.direction.should == 'w'
+    end
+  end
 end

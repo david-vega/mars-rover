@@ -17,6 +17,26 @@ class Rover
     end
   end
 
+  def left
+    case direction
+      when 'n' then @direction = 'w'
+      when 's' then @direction = 'e'
+      when 'e' then @direction = 'n'
+      when 'w' then @direction = 's'
+      else nil
+    end
+  end
+
+  def right
+    case direction
+      when 'n' then @direction = 'e'
+      when 's' then @direction = 'w'
+      when 'e' then @direction = 's'
+      when 'w' then @direction = 'n'
+      else nil
+    end
+  end
+
   private
 
   def position_update axis, value
