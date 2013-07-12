@@ -59,4 +59,21 @@ describe Rover do
       subject.direction.should == 'w'
     end
   end
+
+  describe '#move' do
+    it 'moves left when "L"' do
+      subject.should_receive(:left)
+      subject.move('L')
+    end
+
+    it 'moves right when "R"' do
+      subject.should_receive(:right)
+      subject.move('R')
+    end
+
+    it 'moves forward "M"' do
+      subject.should_receive(:forward)
+      subject.move('M')
+    end
+  end
 end

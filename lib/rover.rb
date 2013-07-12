@@ -7,6 +7,12 @@ class Rover
     @position  = options[:position]
   end
 
+  def move command
+    command.chars.each do |request|
+      parse request
+    end
+  end
+
   def forward
     case direction
       when 'n' then position_update :y, 1
@@ -38,6 +44,15 @@ class Rover
   end
 
   private
+
+  def parse instruction
+    case instruction
+      when 'M' then forward
+      when 'L' then left
+      when 'R' then right
+      else nil
+    end
+  end
 
   def position_update axis, value
     @position[axis] += value
